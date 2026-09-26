@@ -1,0 +1,6 @@
+{
+  "name": "Storyverse",
+  "description": "Don't just read the story. Enter it. A cinematic interactive storytelling platform combining editorial design, branching narratives, data stories, spatial audio, and contextual AI.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

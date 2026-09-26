@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  html.dark {
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg-canvas: #050507;
+    --bg-surface: #090a0f;
+    --bg-elevated: #11131a;
+    --text-primary: #f4f2ed;
+    --text-secondary: #b8b0a4;
+    --accent-gold: #ffc174;
+    --accent-cyan: #7bd0ff;
+    --accent-violet: #d0bcff;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --card-overlay: rgba(5, 5, 7, 0.85);
+  }
+
+  html.light {
+    --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --bg-canvas: #f6f3ec;
+    --bg-surface: #efeae0;
+    --bg-elevated: #e5dec9;
+    --text-primary: #141311;
+    --text-secondary: #575249;
+    --accent-gold: #b45309;
+    --accent-cyan: #0369a1;
+    --accent-violet: #6d28d9;
+    --border-hairline: rgba(20, 19, 17, 0.12);
+    --border-strong: rgba(20, 19, 17, 0.24);
+    --card-overlay: rgba(246, 243, 236, 0.92);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  html.reduce-motion *,
+  html.reduce-motion *::before,
+  html.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Light theme automatic surface overrides so existing utility classes adapt gracefully */
+html.light .bg-\[\#050507\] {
+  background-color: #f6f3ec !important;
+}
+html.light .bg-\[\#050507\]\/85,
+html.light .bg-\[\#050507\]\/90,
+html.light .bg-\[\#050507\]\/95 {
+  background-color: rgba(246, 243, 236, 0.92) !important;
+}
+html.light .bg-\[\#090a0f\],
+html.light .bg-\[\#090a0f\]\/95,
+html.light .bg-\[\#090a0f\]\/98 {
+  background-color: #efeae0 !important;
+}
+html.light .bg-\[\#11131a\] {
+  background-color: #e5dec9 !important;
+}
+html.light .text-\[\#f4f2ed\] {
+  color: #141311 !important;
+}
+html.light .text-\[\#f4f2ed\]\/90,
+html.light .text-\[\#f4f2ed\]\/80 {
+  color: #262420 !important;
+}
+html.light .text-\[\#b8b0a4\] {
+  color: #575249 !important;
+}
+html.light .text-\[\#ffc174\] {
+  color: #b45309 !important;
+}
+html.light .text-\[\#7bd0ff\] {
+  color: #0369a1 !important;
+}
+html.light .text-\[\#d0bcff\] {
+  color: #6d28d9 !important;
+}
+html.light .border-white\/\[0\.06\],
+html.light .border-white\/\[0\.07\],
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/\[0\.09\],
+html.light .border-white\/\[0\.1\],
+html.light .border-white\/\[0\.12\],
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: rgba(20, 19, 17, 0.14) !important;
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle archival film grain overlay */
+.storyverse-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.024;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Exposed Architectural Hairline Rules */
+.editorial-grid-bg {
+  background-size: 120px 120px;
+  background-image:
+    linear-gradient(to right, var(--border-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-hairline) 1px, transparent 1px);
+}
+
+/* Cinematic Scene Image Transitions */
+@keyframes kenburnsZoom {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@keyframes slowZoomIn {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes parallaxDrift {
+  0% {
+    transform: scale(1.08) translate3d(-2%, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(2%, -1%, 0);
+  }
+}
+
+.scene-transition-kenburns {
+  animation: kenburnsZoom 12s ease-out forwards;
+}
+
+.scene-transition-zoom {
+  animation: slowZoomIn 10s ease-out forwards;
+}
+
+.scene-transition-parallax {
+  animation: parallaxDrift 10s ease-in-out infinite alternate;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #282a34;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Focus-visible accessibility ring */
+:focus-visible {
+  outline: 2px solid #ffc174;
+  outline-offset: 3px;
+}
